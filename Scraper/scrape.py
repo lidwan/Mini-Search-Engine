@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
-
+import json
+import time
 
 # fetches news articles from the roya news website when given a specific article number.
 def fetch_article(article_id):
@@ -26,3 +27,21 @@ def fetch_article(article_id):
         'content': content,
         'link': url
     }
+
+# when start = 40000 & end = 54762 that's one whole year of news articles.
+def scrape_articles(start_id=40000, end_id=54762, output_file="articles.json"):
+    articles = []
+    for article_id in range(start_id, end_id + 1):
+        article = fetch_article(article_id)
+        if article:
+            articles.append(article)
+            print(f"Fetched article {article_id}")
+        time.sleep(0.5)  # don't overwhelm the server ;) stuck in my head thanks IR course!
+    # Save the articles to a JSON file
+    with open(output_file, 'w') as f:
+        json.dump(articles, f)
+
+    print("Scraping complete.")
+
+# Run the scraper
+scrape_articles()
