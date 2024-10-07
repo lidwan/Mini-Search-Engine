@@ -1,0 +1,19 @@
+body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    text-align: center;
+}
+
+.cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.test {
+    width: 300px;
+    background-color: red;
+    color: aliceblue;
+    padding: 18px;
+}
