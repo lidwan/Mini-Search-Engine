@@ -3,9 +3,9 @@ from bs4 import BeautifulSoup
 import json
 import time
 
-# fetches news articles from the roya news website when given a specific article number.
+# fetches news articles from the news website when given a specific article number. Must be modified if websites uses a diffrant structure.
 def fetch_article(article_id):
-    url = f"https://en.royanews.tv/news/{article_id}"
+    url = f"https://EXAMPLE-WEBSITE.com/{article_id}"
     response = requests.get(url)
     
     if response.status_code != 200:
@@ -15,7 +15,7 @@ def fetch_article(article_id):
 
     # Extract the title and content based on updated tag structure
     try:
-        title = soup.find('h1').get_text() # Roya always uses h1's for article titles (based on a quick look around their websites html)
+        title = soup.find('h1').get_text() # this website always uses h1's for article titles (based on a quick look around their websites html)
         content_paragraphs = soup.find_all('p') # same goes for article details, always p tags!
         content = ' '.join(paragraph.get_text() for paragraph in content_paragraphs)
     except AttributeError:
