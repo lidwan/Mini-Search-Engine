@@ -14,10 +14,6 @@ body {
     justify-content: center;
     align-items: center;
 }
-
-.test {
-    width: 300px;
-    background-color: red;
+ .test {
     color: aliceblue;
-    padding: 18px;
-}
+ }
