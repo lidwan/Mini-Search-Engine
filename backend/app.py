@@ -3,7 +3,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import json
 
-def load_articles(filename="/workspaces/mini-search-engine/backend/data/articles.json"):
+def load_articles(filename="/backend/data/articles.json"):
     with open(filename, 'r') as f:
         return json.load(f)
 
